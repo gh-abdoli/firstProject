@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "Yekan";
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/Yekan.eot') format('embedded-opentype');
+    url('../fonts/Yekan.svg') format('svg');
+    url('../fonts/Yekan.woff') format('woff');
+    url('../fonts/Yekan.ttf') format('truetype');
+}
+body {
+    font-family: Yekan;
+}
+.header {
+    min-height: 200px;
+    background-image: url("../images/background.png");
+    border-bottom: #ff970a solid;
+}
+.header-title h1 {
+    color: #f9f9f9;
+    text-align: right;
+    font-size: 22px;
+}
+.header-title h4 {
+    color: #e1e1e1;
+    text-align: right;
+}
+.login {
+    margin-top: 10px;
+}
+
+.content {
+    margin-top: 10px;
+    background-color: #d1d1d1;
+    color: #000000;
+}
+.mrg-top {
+    margin-top: 10px;
+}
+.mrg-botton {
+    margin-bottom: 10px;
+}
+.center {
+    align: center;
+}
+.right {
+    align :"right";
+}
+.footer {
+    min-height: 100px;
+    background-color: #000000;
+    border-top: #ff970a solid;
+    margin-top: 10px;
+}
+.footer h6 {
+    color: #bce8f1;
+    text-align: center;
+}
