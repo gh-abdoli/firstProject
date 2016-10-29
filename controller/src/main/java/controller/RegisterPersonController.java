@@ -44,8 +44,9 @@ public class RegisterPersonController extends HttpServlet {
                 break;
         }
         PersonBl personBl = new PersonBlImpl();
-        personBl.registerPerson(new Person(id, position, name, family, dateOfBird, experienceYear, wage, year));
-
+        if((id != null || id != 0) && (name != null) && (family != null) && (year != null || year > 0)) {
+            personBl.registerPerson(new Person(id, position, name, family, dateOfBird, experienceYear, wage, year));
+        }
         res.sendRedirect("/index.jsp");
     }
 
