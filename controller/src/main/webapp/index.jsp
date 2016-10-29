@@ -49,44 +49,53 @@
 
                 <div class="tab-content mrg-top">
                     <div role="tabpanel" class="tab-pane fade in active" id="home">
-                        <form class="mrg-botton" action="/registerPerson.do">
+                        <form class="mrg-botton" action="/registerPerson.do" data-toggle="validator" role="form" novalidate="true">
                             <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="id" class="form-control" placeholder="شماره کارمندی" aria-describedby="sizing-addon2">
+                                    <input type="text" name="id" class="form-control" pattern="^[_0-9]{1,}$" placeholder="شماره کارمندی" aria-describedby="sizing-addon2" required="">
                                     <span class="input-group-addon" id="sizing-addon1">شماره کارمندی</span>
                                 </div>
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="name" class="form-control" placeholder="نام را وارد کنید" aria-describedby="sizing-addon2">
+                                    <input type="text" name="name" class="form-control" pattern="^[_A-z]{1,}$" placeholder="نام را وارد کنید" aria-describedby="sizing-addon2" required="">
                                     <span class="input-group-addon" id="sizing-addon2">نام</span>
                                 </div>
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="family" class="form-control" placeholder="نام خانوادگی را وارد کنید" aria-describedby="sizing-addon2">
+                                    <input type="text" name="family" class="form-control" pattern="^[_A-z]{1,}$" placeholder="نام خانوادگی را وارد کنید" aria-describedby="sizing-addon2" required="">
                                     <span class="input-group-addon" id="sizing-addon3">نام خانوادگی</span>
                                 </div>
-
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="dateOfBird" id="datepicker" class="form-control" placeholder="تاریخ تولد" aria-describedby="sizing-addon2">
+                                    <input type="text" name="dateOfBird" id="datepicker" class="form-control" placeholder="تاریخ تولد" aria-describedby="sizing-addon2" required="">
                                     <span class="input-group-addon" id="sizing-addon4">تاریخ تولد</span>
                                 </div>
-
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="experienceYear" class="form-control" placeholder="میزان سابقه کاری" aria-describedby="sizing-addon2">
+                                    <input type="text" name="experienceYear" class="form-control" pattern="^[_0-9]{1,}$" placeholder="میزان سابقه کاری" aria-describedby="sizing-addon2" required="">
                                     <span class="input-group-addon" id="sizing-addon5">سابقه</span>
                                 </div>
-
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="wage" class="form-control" placeholder="حقوق پایه" aria-describedby="sizing-addon2">
+                                    <input type="text" name="wage" class="form-control" pattern="^[_0-9]{1,}$" placeholder="حقوق پایه" aria-describedby="sizing-addon2" required>
                                     <span class="input-group-addon" id="sizing-addon6">حقوق</span>
                                 </div>
-
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top">
-                                    <input type="text" name="year" class="form-control" placeholder="میزان افزایش حقوق در طول جند سال" aria-describedby="sizing-addon2">
+                                    <input type="text" name="year" class="form-control" pattern="^[_0-9]{1,}$" placeholder="میزان افزایش حقوق در طول جند سال" aria-describedby="sizing-addon2" required>
                                     <span class="input-group-addon" id="sizing-addon7">سال</span>
                                 </div>
-
+                            </div>
+                            <div class="form-group ">
                                 <div class="input-group mrg-top mrg-botton">
                                         <div class="input-group ">
-                                            <input type="text" id="datebox" name="position" placeholder="سمت سازمانی" class="form-control" aria-describedby="sizing-addon2"/>
+                                            <input type="text" id="datebox" name="position" placeholder="سمت سازمانی" class="form-control" aria-describedby="sizing-addon2" required>
                                             <div class="input-group-btn">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                                     <span class="caret"></span>   سمت
@@ -101,7 +110,9 @@
                                         </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success">دخیره</button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">دخیره</button>
+                            </div>
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="profile">
@@ -159,6 +170,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/validator.min.js"></script>
 <script src="js/customJQuery.js"></script>
 </body>
 </html>

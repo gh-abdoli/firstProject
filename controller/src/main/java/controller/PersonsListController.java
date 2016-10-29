@@ -22,7 +22,10 @@ public class PersonsListController extends HttpServlet {
         PersonBl personBl = new PersonBlImpl();
         List<Person> personsList = personBl.getPersons();
         PrintWriter out = response.getWriter();
-        out.println(new Gson().toJson(personsList));
+        if(personsList != null && personsList.size() != 0) {
+            out.println(new Gson().toJson(personsList));
+        }
         out.close();
+
     }
 }

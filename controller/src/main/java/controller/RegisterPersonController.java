@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -37,10 +38,10 @@ public class RegisterPersonController extends HttpServlet {
                 break;
             case "مدیر بخش":
                 position = Position.DEPARTMENT_HEAD;
-
                 break;
             case "کارمند":
                 position = Position.EMPLOYEE;
+                break;
         }
         PersonBl personBl = new PersonBlImpl();
         personBl.registerPerson(new Person(id, position, name, family, dateOfBird, experienceYear, wage, year));

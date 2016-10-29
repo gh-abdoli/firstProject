@@ -8,7 +8,6 @@ $(function () {
         $.post("getPersons.do", function (list) {
             var personsList = JSON.parse(list);
             $.each(personsList, function (i, person) {
-
                 var tr ="<tr>" +
                         "<td>" + person.id + "</td>" +
                         "<td>" + person.position + "</td>" +
@@ -18,7 +17,7 @@ $(function () {
                         "<td>" + person.experienceYear + "</td>" +
                         "<td>" + person.wage.wage + "</td>" +
                         "<td>" + "<button onclick='computeExtraWage(" + JSON.stringify(person) + ")' class='btn btn-default'>ExtraWage</button> " + "</td>" +
-                        "<td>" + "<button onclick='removePerson(" + person.id  + ")' class='btn btn-default'><span class='glyphicon glyphicon-remove'/></button> </td>" +
+                        "<td>" + "<button onclick='removePerson(" + person.id  + ", this)' class='btn btn-default'><span class='glyphicon glyphicon-remove'/></button> </td>" +
                         "</tr>";
                 $(".myTable").append(tr);
             })
@@ -27,24 +26,22 @@ $(function () {
 });
 
 
-var removePerson  = function (id) {
+var removePerson  = function (id, row) {
 
     var deleted = confirm("Are you sure you want to delete?");
     if (deleted == true) {
         $.post("removePerson.do",
             { idOfPerson: id }
         );
-        $('td').closest('tr').remove();
-    };
-
-}
+        document.getElementById('table').deleteRow(row.parentNode.parentNode.rowIndex);
+    }
+};
 
 var compute = function (person, wageIncreaseRate, extraIncreament) {
     return (person.wage.wage + (person.wage.wage * (wageIncreaseRate/100)) +  (person.wage.wage * (extraIncreament/100)) * person.year);
 };
 
 var computeExtraWage = function (person) {
-    alert(person.position);
     switch (person.position) {
         case "MANAGER":
             alert(compute(person, 25, 15));
@@ -59,7 +56,7 @@ var computeExtraWage = function (person) {
             alert(compute(person, 25, 15));
             break;
         }
-}
+};
 
 $( function() {
     $("#datepicker").datepicker();
@@ -69,3 +66,6 @@ $('#demolist li').click( function(){
     $('#datebox').val($(this).text());
 });
 
+var validate = function () {
+    document.getElementById('a').innerHTML = "error"
+};
